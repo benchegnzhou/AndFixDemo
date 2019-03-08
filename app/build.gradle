@@ -20,13 +20,79 @@ android {
         flavorDimensions "versionCode"
         manifestPlaceholders = [CHANNEL_NAME: "channel_name"]
     }
-    buildTypes {
+
+
+
+    productFlavors {
+        baidu {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+
+    signingConfigs {
+        debug {
+
+            storeFile file("../AndfixDemo.jks")
+            storePassword "123456789"
+            keyAlias "AndfixDemo"
+            keyPassword "123456789"
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            storeFile file("../AndfixDemo.jks")
+            storePassword "123456789"
+            keyAlias "AndfixDemo"
+            keyPassword "123456789"
         }
     }
+
+
+
+
+
+
+
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "TOAST_DEBUG", "true"
+
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.
+            signingConfig signingConfigs.debug
+        }
+        release {
+            //加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+            debuggable true
+            //混淆
+            minifyEnabled false
+
+            //Zipalign优化
+            // zipAlignEnabled true
+            // 移除无用的resource文件
+            // shrinkResources true
+            //日志开关
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "TOAST_DEBUG", "true"
+        }
+    }
+
 }
+
+
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
