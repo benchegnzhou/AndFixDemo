@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    // 放弃drawable资源检查
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    
+    
+    
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 120
+        versionName "1.0.1"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+}
+
+//apply from: 'bintray.gradle'
