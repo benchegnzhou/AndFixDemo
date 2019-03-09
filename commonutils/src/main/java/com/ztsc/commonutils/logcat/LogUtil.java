@@ -9,18 +9,18 @@ import com.ztsc.commonutils.CommonUtil;
 
 /**
  * http://www.flvcd.com/
- *  .--,       .--,
+ * .--,       .--,
  * ( (  \.---./  ) )
- *  '.__/o   o\__.'
- *     {=  ^  =}
- *      >  -  <
- *     /       \
- *    //       \\
- *   //|   .   |\\
- *   "'\       /'"_.-~^`'-.
- *      \  _  /--'         `
- *    ___)( )(___
- *   (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
+ * '.__/o   o\__.'
+ * {=  ^  =}
+ * >  -  <
+ * /       \
+ * //       \\
+ * //|   .   |\\
+ * "'\       /'"_.-~^`'-.
+ * \  _  /--'         `
+ * ___)( )(___
+ * (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
  */
 
 /**
@@ -42,9 +42,10 @@ public class LogUtil {
 
     /**
      * 带有类名信息的log
-     * @author:zbc
+     *
      * @param mTag
      * @param str
+     * @author:zbc
      */
     public static void d(String mTag, String str) {
         if (state) {
@@ -54,9 +55,9 @@ public class LogUtil {
 
 
     /**
-     * @author:zbc
      * @param context
      * @param str
+     * @author:zbc
      */
     public static void d(Context context, String str) {
         String mTag = context.getClass().getSimpleName();
@@ -65,16 +66,19 @@ public class LogUtil {
             Log.d(mTag, str);
         }
     }
+
     public static void e(String str) {
-        if (state) {
+        if (state && !TextUtils.isEmpty(str)) {
             Log.e(tag, str);
         }
     }
+
     /**
      * 带有类名信息的log
-     * @author:zbc
+     *
      * @param mTag
      * @param str
+     * @author:zbc
      */
     public static void e(String mTag, String str) {
         mTag = TextUtils.isEmpty(mTag) ? tag : mTag;
@@ -85,9 +89,9 @@ public class LogUtil {
 
 
     /**
-     * @author:zbc
      * @param context
      * @param str
+     * @author:zbc
      */
     public static void e(Context context, String str) {
         String mTag = context.getClass().getSimpleName();
@@ -100,13 +104,14 @@ public class LogUtil {
     /**
      * 打印错误级别的日志，带有错误
      * 此
+     *
      * @param msg
      * @param tr
      * @return
      */
-    public static void e(  String msg, Throwable tr) {
+    public static void e(String msg, Throwable tr) {
         if (state) {
-            Log.e(tag, msg,tr);
+            Log.e(tag, msg, tr);
         }
     }
 
@@ -114,16 +119,17 @@ public class LogUtil {
     /**
      * 打印错误级别的日志，带有错误
      * 此
+     *
      * @param context
      * @param msg
      * @param tr
      * @return
      */
-    public static void e(  Context context,String  msg, Throwable tr) {
+    public static void e(Context context, String msg, Throwable tr) {
         String mTag = context.getClass().getSimpleName();
         mTag = TextUtils.isEmpty(mTag) ? tag : mTag;
-        if (state){
-            Log.e(mTag, msg,tr);
+        if (state) {
+            Log.e(mTag, msg, tr);
         }
 
     }

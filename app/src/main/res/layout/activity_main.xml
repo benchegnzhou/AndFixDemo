@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -11,13 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:text="产生bug"
+        android:layout_marginTop="40px"
         android:textColor="@color/color_text_666666"
         android:textSize="18sp"/>
     <Button
         android:id="@+id/btn_repair"
         android:layout_width="match_parent"
         android:layout_height="144px"
+        android:layout_marginTop="40px"
         android:text="修复bug"
         android:textColor="@color/color_text_666666"
         android:textSize="18sp"/>
-</RelativeLayout>
+</LinearLayout>

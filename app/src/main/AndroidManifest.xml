@@ -2,6 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zbc.com.andfixdemo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 摄像权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <!-- 这里是用户的一般权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--  往SDCard写入数据权限  -->
     <application
         android:name=".application.MApplication"
         android:allowBackup="true"
@@ -20,7 +32,6 @@
             android:value="${UMENG_CHANNEL_VALUE}" />
 
     </application>
-
 
 
 </manifest>
